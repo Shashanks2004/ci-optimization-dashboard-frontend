@@ -63,7 +63,7 @@ export default function Auth() {
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/google",
+        "https://ci-optimization-dashboard-backend.onrender.com/api/auth/google",
         {
           token: credentialResponse.credential,
         }

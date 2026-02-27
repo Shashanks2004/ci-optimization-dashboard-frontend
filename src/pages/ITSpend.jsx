@@ -32,7 +32,7 @@ export default function ITSpendDashboard() {
 
   // 🔥 Fetch available repos
   useEffect(() => {
-    fetch("http://localhost:5000/api/github/repos", {
+    fetch("https://ci-optimization-dashboard-backend.onrender.com/api/github/repos", {
       credentials: "include",
     })
       .then(res => res.json())

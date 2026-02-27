@@ -15,7 +15,7 @@ export default function Connections() {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/github/me", {
+    fetch("https://ci-optimization-dashboard-backend.onrender.com/api/github/me", {
       credentials: "include",
     })
       .then(res => res.json())
@@ -24,7 +24,7 @@ export default function Connections() {
 
   const handleConnect = () => {
     window.location.href =
-      "http://localhost:5000/api/github/login";
+      "https://ci-optimization-dashboard-backend.onrender.com/api/github/login";
   };
 
   if (!githubData) return <div>Loading...</div>;

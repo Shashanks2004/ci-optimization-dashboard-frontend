@@ -1,7 +1,7 @@
 export default function ConnectGithub() {
   const handleConnect = () => {
     window.location.href =
-      "http://localhost:5000/api/github/login";
+      "https://ci-optimization-dashboard-backend.onrender.com/api/github/login";
   };
 
   return (

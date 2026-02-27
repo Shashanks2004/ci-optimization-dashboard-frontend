@@ -28,7 +28,7 @@ const AIInsights = () => {
 
         // Fetch latest commits
         const commitsRes = await fetch(
-          `http://localhost:5000/api/github/commits/${selectedRepo}`,
+          `https://ci-optimization-dashboard-backend.onrender.com/api/github/commits/${selectedRepo}`,
           { credentials: "include" }
         );
 
@@ -41,7 +41,7 @@ const AIInsights = () => {
 
         // Fetch AI executive summary
         const summaryRes = await fetch(
-          `http://localhost:5000/api/ai/summary/${selectedRepo}`,
+          `https://ci-optimization-dashboard-backend.onrender.com/api/ai/summary/${selectedRepo}`,
           { credentials: "include" }
         );
 

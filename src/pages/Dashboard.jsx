@@ -25,7 +25,7 @@ export default function Dashboard() {
   */
   const fetchRepos = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/github/repos", {
+      const res = await fetch("https://ci-optimization-dashboard-backend.onrender.com/api/github/repos", {
         credentials: "include",
       });
 
@@ -48,7 +48,7 @@ export default function Dashboard() {
   */
   const fetchStats = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/dashboard/stats");
+      const res = await fetch("https://ci-optimization-dashboard-backend.onrender.com/api/dashboard/stats");
       const data = await res.json();
       setStats(data);
     } catch (err) {
@@ -69,7 +69,7 @@ export default function Dashboard() {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/github/commits/${selectedRepo}`,
+        `https://ci-optimization-dashboard-backend.onrender.com/api/github/commits/${selectedRepo}`,
         {
           credentials: "include",
         }
@@ -99,7 +99,7 @@ export default function Dashboard() {
   */
   const simulateCommit = async () => {
     try {
-      await fetch("http://localhost:5000/api/commits/simulate", {
+      await fetch("https://ci-optimization-dashboard-backend.onrender.com/api/commits/simulate", {
         method: "POST",
       });
 
@@ -117,7 +117,7 @@ export default function Dashboard() {
   useEffect(() => {
   if (!selectedRepo) return;
 
-  fetch(`http://localhost:5000/api/github/metrics/${selectedRepo}`, {
+  fetch(`https://ci-optimization-dashboard-backend.onrender.com/api/github/metrics/${selectedRepo}`, {
     credentials: "include",
   })
     .then(res => res.json())

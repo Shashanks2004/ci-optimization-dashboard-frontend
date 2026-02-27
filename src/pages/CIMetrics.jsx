@@ -24,7 +24,7 @@ export default function CIMetrics() {
     const fetchRepos = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/github/repos",
+          "https://ci-optimization-dashboard-backend.onrender.com/api/github/repos",
           { credentials: "include" }
         );
 
@@ -49,7 +49,7 @@ export default function CIMetrics() {
     const fetchMetrics = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/github/metrics/${selectedRepo}`,
+          `https://ci-optimization-dashboard-backend.onrender.com/api/github/metrics/${selectedRepo}`,
           { credentials: "include" }
         );
 
@@ -69,7 +69,7 @@ export default function CIMetrics() {
   const fetchCommits = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/github/commits/${selectedRepo}`,
+        `https://ci-optimization-dashboard-backend.onrender.com/api/github/commits/${selectedRepo}`,
         { credentials: "include" }
       );
 
@@ -94,7 +94,7 @@ export default function CIMetrics() {
 
   setLoadingAI(true);
   try {
-    const res = await fetch("http://localhost:5000/api/ai/optimize", {
+    const res = await fetch("https://ci-optimization-dashboard-backend.onrender.com/api/ai/optimize", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

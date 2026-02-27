@@ -11,7 +11,7 @@ export default function CommitTable({ selectedRepo }) {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/github/commits/${selectedRepo}`,
+        `https://ci-optimization-dashboard-backend.onrender.com/api/github/commits/${selectedRepo}`,
         {
           credentials: "include",
         }

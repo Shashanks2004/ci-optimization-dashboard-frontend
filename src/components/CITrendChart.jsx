@@ -15,7 +15,7 @@ export default function CITrendChart({ selectedRepo }) {
   useEffect(() => {
     if (!selectedRepo) return;
 
-    fetch(`http://localhost:5000/api/github/trend/${selectedRepo}`, {
+    fetch(`https://ci-optimization-dashboard-backend.onrender.com/api/github/trend/${selectedRepo}`, {
       credentials: "include",
     })
       .then(res => res.json())

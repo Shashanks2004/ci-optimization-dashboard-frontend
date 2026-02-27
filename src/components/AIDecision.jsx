@@ -4,7 +4,7 @@ export default function AIDecision() {
   const [ai, setAi] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/dashboard/latest-ai")
+    fetch("https://ci-optimization-dashboard-backend.onrender.com/api/dashboard/latest-ai")
       .then(res => res.json())
       .then(data => setAi(data))
       .catch(err => console.error(err));
