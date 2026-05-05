@@ -10,24 +10,18 @@ export default function Connections() {
     "https://ci-optimization-dashboard-backend.onrender.com";
 
   const logout = () => {
-    // optional logout endpoint later
     console.log("Logout");
   };
 
-  // 🔥 Check GitHub connection
   useEffect(() => {
     fetch(`${BACKEND_URL}/api/github/me`, {
       credentials: "include",
     })
-      .then(res => {
-        if (!res.ok) throw new Error("Not authenticated");
-        return res.json();
-      })
+      .then(res => res.json())
       .then(data => setGithubData(data))
       .catch(() => setGithubData({ connected: false }));
   }, []);
 
-  // 🔥 Correct OAuth URL
   const handleConnect = () => {
     window.location.href = `${BACKEND_URL}/api/auth/github`;
   };
@@ -60,7 +54,7 @@ export default function Connections() {
                 className="w-16 h-16 rounded-full mb-4"
               />
               <p><strong>Username:</strong> {githubData.user.login}</p>
-              <p><strong>Public Repos:</strong> {githubData.user.public_repos}</p>
+              <p><strong>Repos:</strong> {githubData.user.public_repos}</p>
               <p><strong>Followers:</strong> {githubData.user.followers}</p>
               <p className="text-green-600 mt-2">Connected ✅</p>
             </div>
