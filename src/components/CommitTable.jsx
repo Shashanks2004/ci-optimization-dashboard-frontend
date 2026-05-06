@@ -66,29 +66,30 @@ export default function CommitTable({ selectedRepo }) {
             </thead>
 
             <tbody className="text-[#4E342E]">
-              {commits.map((commit) => (
-                <tr
-                  key={commit.sha}
-                  className="border-t border-[#EAD7C3] hover:bg-white/40 transition duration-200"
-                >
-                  <td className="py-3 font-medium whitespace-nowrap">
-  {commit.sha.slice(0, 7)}
-</td>
+  {Array.isArray(commits) &&
+    commits.map((commit) => (
+      <tr
+        key={commit.sha}
+        className="border-t border-[#EAD7C3] hover:bg-white/40 transition duration-200"
+      >
+        <td className="py-3 font-medium whitespace-nowrap">
+          {commit.sha?.slice(0, 7)}
+        </td>
 
-                  <td className="min-w-[220px]">
-  {commit.message}
-</td>
+        <td className="min-w-[220px]">
+          {commit.message}
+        </td>
 
-                  <td className="whitespace-nowrap">
-  {commit.author}
-</td>
+        <td className="whitespace-nowrap">
+          {commit.author}
+        </td>
 
-                  <td className="whitespace-nowrap">
-  {new Date(commit.date).toLocaleString()}
-</td>
-                </tr>
-              ))}
-            </tbody>
+        <td className="whitespace-nowrap">
+          {new Date(commit.date).toLocaleString()}
+        </td>
+      </tr>
+    ))}
+</tbody>
           </table>
         </div>
       )}
