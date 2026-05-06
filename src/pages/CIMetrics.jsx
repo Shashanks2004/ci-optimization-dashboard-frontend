@@ -127,14 +127,14 @@ export default function CIMetrics() {
   };
 
   return (
-  <div className="flex min-h-screen text-[#4E342E] bg-gradient-to-br from-[#F8EDE3] to-[#C89F7A]">
+  <div className="flex flex-col md:flex-row min-h-screen text-[#4E342E] bg-gradient-to-br from-[#F8EDE3] to-[#C89F7A] overflow-x-hidden">
 
     <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
     <div className="flex-1 flex flex-col">
       <Navbar onLogout={logout} />
 
-      <div className="p-8 space-y-8">
+      <div className="p-4 md:p-8 space-y-6 md:space-y-8 overflow-x-hidden">
         <div className="p-6 bg-white/40 backdrop-blur-md rounded-2xl shadow-lg">
 
           <h2 className="text-2xl font-semibold text-[#5C4033] mb-6 flex items-center gap-2">
@@ -186,7 +186,7 @@ export default function CIMetrics() {
 
               {/* Summary Cards */}
               {metrics && (
-                <div className="grid grid-cols-3 gap-6 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
                   <div className="bg-[#F8EDE3] p-5 rounded-xl shadow">
                     <h3 className="text-sm">Success Rate</h3>
                     <p className="text-2xl font-bold">
@@ -217,7 +217,7 @@ export default function CIMetrics() {
               <div className="mt-10">
                 <button
                   onClick={handleAISuggestion}
-                  className="px-6 py-3 bg-[#5C4033] text-white rounded-lg shadow hover:opacity-90 transition"
+                  className="w-full md:w-auto px-6 py-3 bg-[#5C4033] text-white rounded-lg shadow hover:opacity-90 transition"
                 >
                   {loadingAI ? "Generating..." : "Get AI Optimization Suggestion"}
                 </button>

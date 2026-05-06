@@ -65,13 +65,13 @@ const AIInsights = () => {
   const latest = commits && commits.length > 0 ? commits[0] : null;
 
   return (
-    <div className="flex min-h-screen text-[#4E342E] bg-gradient-to-br from-[#F8EDE3] to-[#C89F7A]">
+    <div className="flex flex-col md:flex-row min-h-screen text-[#4E342E] bg-gradient-to-br from-[#F8EDE3] to-[#C89F7A] overflow-x-hidden">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <div className="flex-1 flex flex-col">
         <Navbar onLogout={logout} />
 
-        <div className="p-8 space-y-8">
+        <div className="p-4 md:p-8 space-y-6 md:space-y-8 overflow-x-hidden">
           <div className="p-6 bg-white/40 backdrop-blur-md rounded-2xl shadow-lg">
 
             <h2 className="text-2xl font-semibold text-[#5C4033] mb-6">
@@ -95,9 +95,9 @@ const AIInsights = () => {
             {!loading && latest && (
               <>
                 {/* Latest Commit Section */}
-                <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
 
-                  <div className="bg-[#F8EDE3] p-5 rounded-xl shadow">
+                  <div className="bg-[#F8EDE3] p-4 md:p-5 rounded-xl shadow overflow-hidden">
                     <h3 className="font-semibold mb-3">
                       Latest Commit Details
                     </h3>
@@ -132,7 +132,7 @@ const AIInsights = () => {
                   </div>
 
                   {/* Repository Activity Insight */}
-                  <div className="bg-[#F8EDE3] p-5 rounded-xl shadow">
+                  <div className="bg-[#F8EDE3] p-4 md:p-5 rounded-xl shadow overflow-hidden">
                     <h3 className="font-semibold mb-3">
                       Repository Activity Insight
                     </h3>
@@ -154,7 +154,7 @@ const AIInsights = () => {
                 </div>
 
                 {/* AI Executive Summary */}
-                <div className="bg-[#F8EDE3] p-5 rounded-xl shadow">
+                <div className="bg-[#F8EDE3] p-4 md:p-5 rounded-xl shadow overflow-hidden">
                   <h3 className="font-semibold mb-3">
                     AI Executive Summary
                   </h3>

@@ -68,14 +68,14 @@ export default function ITSpendDashboard() {
   }, [selectedRepo]);
 
   return (
-    <div className="flex min-h-screen text-[#4E342E] bg-gradient-to-br from-[#F8EDE3] to-[#C89F7A]">
+    <div className="flex flex-col md:flex-row min-h-screen text-[#4E342E] bg-gradient-to-br from-[#F8EDE3] to-[#C89F7A] overflow-x-hidden">
       
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <div className="flex-1 flex flex-col">
         <Navbar onLogout={logout} />
 
-        <div className="p-8 space-y-8">
+        <div className="p-4 md:p-8 space-y-6 md:space-y-8 overflow-x-hidden">
 
           <h1 className="text-2xl font-semibold">IT Spend Dashboard</h1>
 
@@ -84,7 +84,7 @@ export default function ITSpendDashboard() {
             <select
               value={selectedRepo}
               onChange={(e) => setSelectedRepo(e.target.value)}
-              className="p-3 rounded-lg shadow-md border"
+              className="w-full md:w-auto p-3 rounded-lg shadow-md border"
             >
               <option value="">Select Repository</option>
               {repoList.map((repo, index) => (
@@ -97,10 +97,10 @@ export default function ITSpendDashboard() {
 
           {/* Only show charts if repo selected */}
           {selectedRepo && (
-            <div className="flex gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
               {/* Monthly Spend Chart */}
-              <div className="bg-white p-5 rounded-xl shadow-md w-1/3">
+              <div className="bg-white p-4 md:p-5 rounded-xl shadow-md w-full">
                 <h4 className="mb-3 font-medium">Monthly Spend</h4>
                 <ResponsiveContainer width="100%" height={250}>
                   <BarChart data={monthlyData}>
@@ -114,7 +114,7 @@ export default function ITSpendDashboard() {
               </div>
 
               {/* Category Pie Chart */}
-              <div className="bg-white p-5 rounded-xl shadow-md w-1/3">
+              <div className="bg-white p-4 md:p-5 rounded-xl shadow-md w-full">
                 <h4 className="mb-3 font-medium">Category Breakdown</h4>
                 <ResponsiveContainer width="100%" height={250}>
                   <PieChart>
@@ -136,7 +136,7 @@ export default function ITSpendDashboard() {
               </div>
 
               {/* AI Risk Trend Chart */}
-              <div className="bg-white p-5 rounded-xl shadow-md w-1/3">
+              <div className="bg-white p-4 md:p-5 rounded-xl shadow-md w-full">
                 <h4 className="mb-3 font-medium">AI Risk Trend</h4>
                 <CITrendChart selectedRepo={selectedRepo} />
               </div>

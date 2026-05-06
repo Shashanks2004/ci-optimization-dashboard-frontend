@@ -72,13 +72,6 @@ export default function Sidebar() {
         />
 
         <SidebarItem
-          to="/security"
-          icon={<ShieldCheck />}
-          label="Security"
-          active={isActive("/security")}
-        />
-
-        <SidebarItem
           to="/ai-insights"
           icon={<Brain />}
           label="AI Insights"

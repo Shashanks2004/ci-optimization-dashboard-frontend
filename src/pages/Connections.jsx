@@ -29,15 +29,15 @@ export default function Connections() {
   if (!githubData) return <div className="p-8">Loading...</div>;
 
   return (
-    <div className="flex min-h-screen text-[#4E342E] bg-gradient-to-br from-[#F8EDE3] to-[#C89F7A]">
+    <div className="flex flex-col md:flex-row min-h-screen text-[#4E342E] bg-gradient-to-br from-[#F8EDE3] to-[#C89F7A] overflow-x-hidden">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
       <div className="flex-1 flex flex-col">
         <Navbar onLogout={logout} />
-        <div className="p-8 space-y-8">
+        <div className="p-4 md:p-8 space-y-6 md:space-y-8 overflow-x-hidden">
           <h2 className="text-2xl font-bold mb-6">GitHub Connection</h2>
 
           {!githubData.connected ? (
-            <div className="bg-white p-6 rounded-lg shadow">
+            <div className="bg-white p-4 md:p-6 rounded-lg shadow w-full max-w-xl">
               <p className="mb-4">GitHub not connected.</p>
               <button
                 onClick={handleConnect}
@@ -47,7 +47,7 @@ export default function Connections() {
               </button>
             </div>
           ) : (
-            <div className="bg-white p-6 rounded-lg shadow">
+            <div className="bg-white p-4 md:p-6 rounded-lg shadow w-full max-w-xl">
               <img
                 src={githubData.user.avatar_url}
                 alt="avatar"
