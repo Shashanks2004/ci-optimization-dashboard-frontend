@@ -24,15 +24,23 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="h-screen w-64 p-6 hidden md:flex flex-col
-                 bg-white/40 backdrop-blur-md
-                 border-r border-[#DDB892]"
-    >
+  className="
+    w-full md:w-64
+    p-4 md:p-6
+    flex flex-col
+    bg-white/40 backdrop-blur-md
+    border-b md:border-b-0 md:border-r
+    border-[#DDB892]
+  "
+>
       <h1 className="text-2xl font-bold text-[#5C4033] mb-10">
         CIO Panel
       </h1>
 
-      <nav className="flex-1 space-y-3">
+      <nav className="
+  flex gap-2 overflow-x-auto
+  md:block md:space-y-3
+">
 
         <SidebarItem
           to="/dashboard"
