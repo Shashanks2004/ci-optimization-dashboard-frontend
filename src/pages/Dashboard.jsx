@@ -146,7 +146,7 @@ export default function Dashboard() {
 
   return (
     <div
-      className="flex min-h-screen text-[#4E342E]"
+      className="flex flex-col md:flex-row min-h-screen text-[#4E342E] overflow-x-hidden"
       style={{
         background: `
           linear-gradient(
@@ -164,7 +164,16 @@ export default function Dashboard() {
       <div className="flex-1 flex flex-col">
         <Navbar onLogout={logout} />
 
-        <div className="p-8 space-y-8 bg-white/30 backdrop-blur-md rounded-tl-3xl shadow-xl">
+        <div className="
+  p-4 md:p-8
+  space-y-6 md:space-y-8
+  bg-white/30
+  backdrop-blur-md
+  md:rounded-tl-3xl
+  shadow-xl
+  w-full
+  overflow-x-hidden
+">
 
           {activeTab === "overview" && (
             <>
@@ -187,7 +196,7 @@ export default function Dashboard() {
                   ))}
                 </select>
 
-                <div className="mt-4 flex justify-end">
+                <div className="mt-4 flex justify-center md:justify-end">
                   <button
                     onClick={handleFetchCommits}
                     className="bg-gradient-to-r from-[#5C4033] to-[#8D6E63]
@@ -201,7 +210,7 @@ export default function Dashboard() {
 
               {/* ================= STATS ================= */}
               {stats && (
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                   <div className="bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-lg">
                     <StatCard title="Total Builds" value={metrics?.totalBuilds ?? 0} />
                   </div>
@@ -245,7 +254,7 @@ export default function Dashboard() {
               </div>
 
               {/* ================= SIMULATE ================= */}
-              <div className="flex justify-end">
+              <div className="flex justify-center md:justify-end">
                 <button
                   onClick={simulateCommit}
                   className="bg-gradient-to-r from-[#C89F7A] to-[#A47551]
@@ -258,7 +267,7 @@ export default function Dashboard() {
               </div>
 
               {/* ================= TABLE + AI ================= */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
                 <div className="md:col-span-2 bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-lg">
                   <CommitTable  selectedRepo={selectedRepo} commits={commits} />
                 </div>

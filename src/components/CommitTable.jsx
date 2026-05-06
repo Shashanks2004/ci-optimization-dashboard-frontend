@@ -54,8 +54,8 @@ export default function CommitTable({ selectedRepo }) {
       )}
 
       {selectedRepo && !loading && (
-        <div className="table-scroll">
-          <table className="w-full text-sm">
+        <div className="overflow-x-auto w-full">
+  <table className="min-w-[700px] w-full text-sm">
             <thead className="text-[#6D4C41]">
               <tr className="border-b border-[#EAD7C3]">
                 <th className="text-left pb-2">Commit</th>
@@ -71,17 +71,21 @@ export default function CommitTable({ selectedRepo }) {
                   key={commit.sha}
                   className="border-t border-[#EAD7C3] hover:bg-white/40 transition duration-200"
                 >
-                  <td className="py-3 font-medium">
-                    {commit.sha}
-                  </td>
+                  <td className="py-3 font-medium whitespace-nowrap">
+  {commit.sha.slice(0, 7)}
+</td>
 
-                  <td>{commit.message}</td>
+                  <td className="min-w-[220px]">
+  {commit.message}
+</td>
 
-                  <td>{commit.author}</td>
+                  <td className="whitespace-nowrap">
+  {commit.author}
+</td>
 
-                  <td>
-                    {new Date(commit.date).toLocaleString()}
-                  </td>
+                  <td className="whitespace-nowrap">
+  {new Date(commit.date).toLocaleString()}
+</td>
                 </tr>
               ))}
             </tbody>
